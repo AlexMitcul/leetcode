@@ -1,7 +1,3 @@
-/*
-https://leetcode.com/problems/count-the-number-of-consistent-strings/
-*/
-
 class Solution {
     func countConsistentStrings(_ allowed: String, _ words: [String]) -> Int {
         var count = 0
