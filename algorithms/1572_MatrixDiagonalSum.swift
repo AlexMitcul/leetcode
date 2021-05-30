@@ -7,7 +7,6 @@ class Solution {
         }
 
         if size % 2 != 0 {
-            //let i = mat.count / 2
             sum += mat[mat.count/2][mat.count/2]
         }
         
