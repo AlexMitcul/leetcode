@@ -6,8 +6,10 @@
  * };
  */
 
+#include <stdlib.h>
 
-struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2){
+struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2)
+{
     if (list1 == NULL)
         return (list2);
     if (list2 == NULL)
