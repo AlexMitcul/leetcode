@@ -1,5 +1,10 @@
 import java.util.Stack;
 
+
+/**
+ * 1190. Reverse Substrings Between Each Pair of Parentheses
+ * <a href="https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses/">Link</a>
+ */
 public class ReverseSubstringsBetweenEachPairofParentheses {
 
     public String reverseParentheses(String s) {
