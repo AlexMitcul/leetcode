@@ -93,10 +93,9 @@ public class RobotCollisions {
             var robot = stack.pop();
             robots.add(robot);
         }
-        robots.sort(Comparator.comparingInt(Robot::getDefaultPosition));
-        for (var robot : robots) {
-            res.add(robot.getHealth());
-        }
-        return res;
+        return robots.stream()
+                .sorted(Comparator.comparingInt(Robot::getDefaultPosition))
+                .map(Robot::getHealth)
+                .toList();
     }
 }
