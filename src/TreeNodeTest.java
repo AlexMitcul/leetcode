@@ -134,4 +134,21 @@ class TreeNodeTest {
         assertEquals("1,2,null,3,null,null,null", TreeNode.serialize(root));
     }
 
+
+    @Test
+    public void testTriesAreEqual() {
+        TreeNode tree1 = TreeNode.deserialize("1,2,null,3,null,null,null");
+        TreeNode tree2 = TreeNode.deserialize("1,2,null,3,null,null,null");
+
+        assertTrue(tree1.compareTries(tree2));
+    }
+
+    @Test
+    public void testTriesAreNotEqual() {
+        TreeNode tree1 = TreeNode.deserialize("1,2,null,3,null,null,null");
+        TreeNode tree2 = TreeNode.deserialize("1,3,null,4,null,null,null");
+
+        assertFalse(tree1.compareTries(tree2));
+    }
+
 }

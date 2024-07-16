@@ -60,18 +60,25 @@ public class TreeNode {
 
             if (!values[i].equals("null")) {
                 TreeNode left = new TreeNode(Integer.parseInt(values[i]));
-                current.left = left;
+                Objects.requireNonNull(current).left = left;
                 queue.add(left);
             }
             i++;
             if (!values[i].equals("null")) {
                 TreeNode right = new TreeNode(Integer.parseInt(values[i]));
-                current.right = right;
+                Objects.requireNonNull(current).right = right;
                 queue.add(right);
             }
         }
 
         return root;
+    }
+
+    public boolean compareTries(TreeNode root) {
+        String thisTree = serialize(this);
+        String anotherTree = serialize(root);
+
+        return thisTree.equals(anotherTree);
     }
 }
 
