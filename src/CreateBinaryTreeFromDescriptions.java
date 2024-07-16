@@ -37,7 +37,7 @@ public class CreateBinaryTreeFromDescriptions {
             map.get(node[0]).put(node[2], node[1]);
             heads.remove(node[1]);
         }
-        TreeNode head = new TreeNode(heads.stream().findFirst().get());
+        TreeNode head = new TreeNode(heads.iterator().next());
         fillTree(head, map);
 
         return head;
