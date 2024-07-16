@@ -1,5 +1,6 @@
 package Tree;
 
+import com.sun.source.tree.Tree;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -151,6 +152,36 @@ class TreeNodeTest {
         TreeNode tree2 = TreeNode.deserialize("1,3,null,4,null,null,null");
 
         assertFalse(tree1.compareTries(tree2));
+    }
+
+    @Test
+    public void lowestCommonAncestorTest() {
+        TreeNode root = TreeNode.deserialize("3,5,1,6,2,0,8,null,null,7,4");
+        TreeNode p = root.left; // 5
+        TreeNode q = root.right; // 1
+        TreeNode LCA = TreeNode.lowestCommonAncestor(root, p, q);
+
+        assertEquals(LCA, root);
+    }
+
+    @Test
+    public void lowestCommonAncestorWhenPisLCATest() {
+        TreeNode root = TreeNode.deserialize("3,5,1,6,2,0,8,null,null,7,4");
+        TreeNode p = root.left; // 5
+        TreeNode q = root.left.right.right; // 4
+        TreeNode LCA = TreeNode.lowestCommonAncestor(root, p, q);
+
+        assertEquals(LCA, p);
+    }
+
+    @Test
+    public void lowestCommonAncestorWhenQisLCATest() {
+        TreeNode root = TreeNode.deserialize("3,5,1,6,2,0,8,null,null,7,4");
+        TreeNode p = root.right.left; // 0
+        TreeNode q = root.right; // 1
+        TreeNode LCA = TreeNode.lowestCommonAncestor(root, p, q);
+
+        assertEquals(LCA, q);
     }
 
 }

@@ -79,6 +79,31 @@ public class TreeNode {
 
         return thisTree.equals(anotherTree);
     }
+
+    /**
+     * Find the lowest common ancestor in the binary tree. <a href="https://en.wikipedia.org/wiki/Lowest_common_ancestor">Wiki explanation</a>
+     * Required to root, p and q be valid and exist in the tree.
+     * <a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/">LeetCode link</a>
+     * @param root node
+     * @param p first node
+     * @param q second node
+     * @return node - lowest common ancestor
+     */
+    public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null || p == null || q == null) return null;
+
+        if (root == p || root == q) return root;
+
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+
+        if (left != null && right != null)
+            return root;
+        else if (left != null)
+            return left;
+        else
+            return right;
+    }
 }
 
 
